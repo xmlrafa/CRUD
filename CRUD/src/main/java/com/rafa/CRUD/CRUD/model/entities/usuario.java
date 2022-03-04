@@ -16,6 +16,10 @@ public class usuario {
 
 	private int idade;
 
+	public usuario() {
+
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -40,9 +44,9 @@ public class usuario {
 		this.idade = idade;
 	}
 
-	public usuario(int id, String nome, int idade) {
+	public usuario(String nome, int idade) {
 		super();
-		this.id = id;
+	
 		this.nome = nome;
 		this.idade = idade;
 	}
