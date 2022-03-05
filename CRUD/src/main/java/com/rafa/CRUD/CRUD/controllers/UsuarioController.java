@@ -2,11 +2,14 @@ package com.rafa.CRUD.CRUD.controllers;
 
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -60,5 +63,16 @@ public class UsuarioController {
 	public usuario deleteUsuario(@RequestParam int id) {
 		usuarioRepository.deleteById(id);
 		return null;
+	}
+	
+	@PutMapping()
+	public usuario atualizarUsuario(@Valid usuario usuario) {
+		usuarioRepository.save(usuario);
+		return usuario;
+	}
+	
+	@GetMapping(path = "/{nome}")
+	public Iterable<usuario> consultarPorNome(@PathVariable String nome) {
+		return usuarioRepository.findByNomeContaining(nome);		
 	}
 }

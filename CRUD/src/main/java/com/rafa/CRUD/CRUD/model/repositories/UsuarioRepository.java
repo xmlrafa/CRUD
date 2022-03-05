@@ -6,6 +6,6 @@ import com.rafa.CRUD.CRUD.model.entities.usuario;
 
 public interface UsuarioRepository extends PagingAndSortingRepository<usuario, Integer>{
 	
-	
+	public Iterable<usuario> findByNomeContaining(String parteNome);
 	
 }
